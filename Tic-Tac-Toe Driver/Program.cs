@@ -15,7 +15,7 @@ namespace mission3
 
                     Console.WriteLine("You must choose an empty space");
 
-                    indexMark = Convert.ToInt32(Console.ReadLine());
+                    indexMark = Convert.ToInt32(Console.ReadLine()) - 1;
                 }
 
                 return (indexMark);
@@ -37,10 +37,10 @@ namespace mission3
             Console.WriteLine("Welcome, to the glorious game of Tic-Tac-Toe!");
 
             // Declares and Initializes board array
-            char[] board = { '0', '1', '2', '3', '4', '5', '6', '7', '8' };
+            char[] board = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
             int flag = 0;
-            int indexMark = 0;
+            int indexMark = 1;
 
             // Prints initial board
             Support.printBoard(board);
@@ -48,8 +48,8 @@ namespace mission3
             // Main game functionality
             while (flag == 0) {
 
-                Console.WriteLine("Select a number for " + mark + "(0-8): ");
-                indexMark = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Select a number for " + mark + "(1-9): ");
+                indexMark = Convert.ToInt32(Console.ReadLine()) - 1;
                 Program.Check(ref board, ref indexMark);
 
                 // marks the selected index number to X
