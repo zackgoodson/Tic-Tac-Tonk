@@ -1,29 +1,58 @@
 ﻿using System;
 
-namespace Tic_Tac_Toe_Driver
+
+namespace mission3
+
 {
     public class Program
     {
+
+        public static int Check(ref char[] board, ref int indexMark)
+        {
+            if ((board[indexMark] == 'X') | (board[indexMark] == 'O'))
+            {
+                while ((board[indexMark] == 'X') | (board[indexMark] == 'O')) {
+
+                    Console.WriteLine("You must choose an empty space");
+
+                    indexMark = Convert.ToInt32(Console.ReadLine());
+                }
+
+                return (indexMark);
+            }
+            else
+            {
+                return (indexMark);
+            }
+         }
+
+
         public static void Main(string[] args)
         {
+
+            Support su = new Support();
+
+            char mark = 'X';
+
             Console.WriteLine("Welcome, to the glorious game of Tic-Tac-Toe!");
 
-            //Dclares and Initializes board array
+            // Declares and Initializes board array
             char[] board = { '0', '1', '2', '3', '4', '5', '6', '7', '8' };
 
-            bool win = false;
+            int flag = 0;
             int indexMark = 0;
-            char mark = 'X';
-            PrintBoard(board);
 
+            // Prints initial board
+            Support.printBoard(board);
 
-            while (win == false) {
+            // Main game functionality
+            while (flag == 0) {
 
-                // Prompts user for index number to change to X
                 Console.WriteLine("Select a number for " + mark + "(0-8): ");
                 indexMark = Convert.ToInt32(Console.ReadLine());
+                Program.Check(ref board, ref indexMark);
 
-                //marks the selected index number to X
+                // marks the selected index number to X
                 board[indexMark] = mark;
 
                 //Switch marks
@@ -37,8 +66,8 @@ namespace Tic_Tac_Toe_Driver
                 }
 
                 //sends array to print and check if there is a win
-                PrintBoard(board);
-                win = GetWin();
+                Support.printBoard(board);
+                flag = Support.getWin(board);
             }
 
         }
