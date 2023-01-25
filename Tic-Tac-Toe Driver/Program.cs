@@ -9,6 +9,20 @@ namespace mission3
 
         public static int Check(ref char[] board, ref int indexMark)
         {
+
+            if ((indexMark < 0) | (indexMark > 8))
+            {
+                while ((indexMark < 0) | (indexMark > 8))
+                {
+
+                    Console.WriteLine("You must choose an available space");
+
+                    indexMark = Convert.ToInt32(Console.ReadLine()) - 1;
+                }
+
+                return (indexMark);
+            }
+
             if ((board[indexMark] == 'X') | (board[indexMark] == 'O'))
             {
                 while ((board[indexMark] == 'X') | (board[indexMark] == 'O')) {
@@ -16,15 +30,17 @@ namespace mission3
                     Console.WriteLine("You must choose an empty space");
 
                     indexMark = Convert.ToInt32(Console.ReadLine()) - 1;
+
                 }
 
                 return (indexMark);
             }
+
             else
             {
                 return (indexMark);
             }
-         }
+        }
 
 
         public static void Main(string[] args)
