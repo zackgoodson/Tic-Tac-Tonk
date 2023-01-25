@@ -217,7 +217,7 @@ namespace mission3
             }
 
             //Checking for draw
-            else if ((board[0] != '0') && (board[1] != '1') && (board[2] != '2') && (board[3] != '3') && (board[4] != '4') && (board[5] != '5') && (board[6] != '6') && (board[7] != '7') && (board[8] != '8'))
+            else if ((board[0] != '1') && (board[1] != '2') && (board[2] != '3') && (board[3] != '4') && (board[4] != '5') && (board[5] != '6') && (board[6] != '7') && (board[7] != '8') && (board[8] != '9'))
             {
                 //printing there is no winner
                 Console.WriteLine("There are no winners :(");
